@@ -29,6 +29,16 @@ Powered by:
 
 ---
 
+## Gradio Interface
+
+![Gradio UI](https://github.com/archangel4031/LLMPhotoSearch/blob/main/screenshots/Screenshot1.png?raw=true)
+
+![Gradio UI](https://github.com/archangel4031/LLMPhotoSearch/blob/main/screenshots/Screenshot2.png?raw=true)
+
+![Gradio UI](https://github.com/archangel4031/LLMPhotoSearch/blob/main/screenshots/Screenshot3.png?raw=true)
+
+---
+
 ## 🚀 Getting Started
 
 ### 1. Install Dependencies
@@ -108,8 +118,8 @@ Try natural queries like:
 
 ## 📒 Jupyter Notebook on Google Colab
 
-A Google Colab Notebook is provided for those poor souls who do not jave a powerful graphics card.
-The notebook will also use Ollama for image processing and generate a vector store, which can then be used offline.
+A Google Colab Notebook is provided for those poor souls who do not have a powerful graphics card. The notebook will also use Ollama for image processing and generate a vector store, which can then be used offline.
+
 [Colab for Image Processing](https://colab.research.google.com/drive/1Ev4veQRl2mSIBC9gkA9LfHkBDIHnxdYY?usp=sharing)
 
 ---
@@ -139,11 +149,6 @@ This project is designed to be privacy-first and community-friendly.
 
 ---
 
-## 📄 License
-
-[MIT License](LICENSE)
-
----
 
 ## 🙌 Acknowledgements
 
