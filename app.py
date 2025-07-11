@@ -8,6 +8,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 vector_store = ChromaVectorStore(embeddings_model=EMBEDDINGS_MODEL_NAME)
+current_directory = Path.cwd()
 
 
 def select_folder():
@@ -93,6 +94,8 @@ def search_images(query, k_value):
     # Load existing vector store
     vector_store.load_vector_store()
 
+    print(f"Current working directory: {current_directory}")
+
     # Search for photos
     results = vector_store.search_photos(query, k=k_value)
 
@@ -101,10 +104,18 @@ def search_images(query, k_value):
         print(f"\nFound {len(results)} results for query: '{query}'")
         print("=" * 50)
 
+        # Create Path for images
+        
         for i, result in enumerate(results, 1):
             print(f"\nResult {i}:")
             print(f"File: {result['filename']}")
-            print(f"Path: {result['image_path']}")
+            print(f"Path before conversion: {result['image_path']}")
+            # The path from the DB might start with a separator (e.g., '\content\photos...'),
+            # which causes pathlib to treat it as an absolute path from the drive root.
+            # We strip leading separators to ensure it's treated as a relative path.
+            relative_path_str = str(result['image_path']).lstrip('/\\')
+            result['image_path'] = current_directory / relative_path_str
+            print(f"Path after conversion: {result['image_path']}")
             print(f"Similarity Score: {result['similarity_score']:.4f}")
             print(f"Description: {result['content'][:200]}...")
             print("-" * 40)
@@ -132,6 +143,7 @@ def show_image_details(results_data, evt: gr.SelectData):
     description = selected_image.get("content", "N/A")
     score = selected_image.get("similarity_score", 0)
 
+    # The 'path' variable already contains the full, absolute Path object from the search_images function.
     details_md = f"""### Image Details\n**Filename:** `{filename}`\n\n**Path:** `{path}`\n\n**Similarity Score:** `{score:.4f}`\n\n---\n**Description:**\n{description}"""
     return details_md
 
@@ -159,6 +171,8 @@ with gr.Blocks() as demo:
 
             with gr.Row():
                 process_button = gr.Button("Process Images", variant="primary")
+            with gr.Row():
+                # Output area for processing results
                 output_process = gr.Markdown(value = "Processing Results", label="Processing Results", container=True, max_height=500)
 
                 process_button.click(

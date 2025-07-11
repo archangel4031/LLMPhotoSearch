@@ -20,7 +20,7 @@ Analyze this image and provide a detailed description exactly in this format:
 
 MAX_IMAGE_DIMENSION = 2048
 
-# VISION_MODEL_NAME = "mistral-small3.1:latest"
-VISION_MODEL_NAME = "gemma3:12b"
+VISION_MODEL_NAME = "mistral-small3.1:latest"
+# VISION_MODEL_NAME = "gemma3:12b"
 # VISION_MODEL_NAME = "llama3.2-vision:latest"
 EMBEDDINGS_MODEL_NAME = "nomic-embed-text:latest"
