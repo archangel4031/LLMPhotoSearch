@@ -1,5 +1,5 @@
 
-# 🖼️ Photo Search with LLM-Powered Descriptions
+# 🖼️ PhotoTalk: Photo Search with LLM-Powered Descriptions
 
 This project allows users to **search their personal photo collection using natural language**, by leveraging local LLMs to **generate and store private photo descriptions**.
 
