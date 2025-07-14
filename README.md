@@ -118,7 +118,7 @@ Try natural queries like:
 
 ## 📒 Jupyter Notebook on Google Colab
 
-A Google Colab Notebook is provided for those poor souls who do not have a powerful graphics card. The notebook will also use Ollama for image processing and generate a vector store, which can then be used offline.
+A Google Colab Notebook is provided for those mortal peasants who do not have a powerful graphics card. The notebook will also use Ollama for image processing and generate a vector store, which can then be used offline.
 
 [Colab for Image Processing](https://colab.research.google.com/drive/1Ev4veQRl2mSIBC9gkA9LfHkBDIHnxdYY?usp=sharing)
 
